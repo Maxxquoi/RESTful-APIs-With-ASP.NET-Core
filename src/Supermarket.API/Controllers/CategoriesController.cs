@@ -28,6 +28,13 @@ namespace Supermarket.API.Controllers
             var resouces = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
             return resouces;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
+        {
+            await Task.Delay(1);
+            return Ok();
+        }
     }
 
 }
