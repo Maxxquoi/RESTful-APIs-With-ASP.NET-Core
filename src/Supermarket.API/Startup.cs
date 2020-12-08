@@ -37,8 +37,11 @@ namespace Supermarket.API
             services.AddDbContext<AppDbContext>(options => { options.UseInMemoryDatabase("supermarket-api-in-memory"); });
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
